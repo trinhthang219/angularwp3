@@ -1,22 +1,18 @@
-﻿<div class="jumbotron">
-    <h1 class="display-4">
-        {{message}}
-    </h1>
-</div>
-<kendo-grid [data]="gridData">
-    <kendo-grid-column field="ProductID" title="ID" width="40">
-    </kendo-grid-column>
-    <kendo-grid-column field="ProductName" title="Name" width="250">
-    </kendo-grid-column>
-    <kendo-grid-column field="Category.CategoryName" title="Category">
-    </kendo-grid-column>
-    <kendo-grid-column field="UnitPrice" title="Price" width="80">
-    </kendo-grid-column>
-    <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
-    </kendo-grid-column>
-    <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
+﻿<!-- [filter]="state.filter" -->
+<kendo-grid [kendoGridBinding]="gridData" [height]="410" [pageable]="{
+            buttonCount: buttonCount,info: info, type: type, pageSizes: [5, 10, 20], previousNext: previousNext
+          }"
+    sortable=true groupable=true filterable=true [skip]="state.skip" [sort]="state.sort" [pageSize]="state.take"
+    [group]="state.group">
+    <kendo-grid-column field="Id">
         <ng-template kendoGridCellTemplate let-dataItem>
-            <input type="checkbox" [checked]="dataItem.Discontinued" />
+            <div class="customer-photo" [style.backgroundImage]="getUrl(dataItem.Id)"></div>
+            <div class="customer-name">
+                {{ dataItem.Id }}
+            </div>
         </ng-template>
     </kendo-grid-column>
+    <kendo-grid-column field="CompanyName"></kendo-grid-column>
+    <kendo-grid-column field="CompanyPresident"></kendo-grid-column>
+    <kendo-grid-column field="PhoneNumber"></kendo-grid-column>
 </kendo-grid>

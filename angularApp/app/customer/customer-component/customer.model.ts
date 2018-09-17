@@ -6,11 +6,11 @@ export class product {
     'QuantityPerUnit': number;
     'UnitPrice': number;
     'UnitsInStock': number;
-    'UnitsOnOrder':number;
+    'UnitsOnOrder': number;
     'ReorderLevel': number;
-    'Discontinued':number;
+    'Discontinued': number;
     'Category': {
-        'CategoryID':number;
+        'CategoryID': number;
         'CategoryName': string;
         'Description': string
     }
